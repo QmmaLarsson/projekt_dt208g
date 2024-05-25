@@ -28,6 +28,8 @@ export class CoursesComponent {
   selectedSubject: string = "";
   //Array som lagrar kurser sparade till localStorage
   myCourselist: Course[] = [];
+  totalCourses: number = 0;
+  displayedCourses: number = 0;
 
 
   constructor(private courseservice: CourseService, private myCourseservice: MycourseService) { }
@@ -38,6 +40,8 @@ export class CoursesComponent {
       this.courselist = data;
       this.filteredCourse = data;
       this.uniqueSubjects = [...new Set(data.map(course => course.subject))];
+      this.totalCourses = data.length;
+      this.displayedCourses = data.length;
     });
   }
 
@@ -49,6 +53,7 @@ export class CoursesComponent {
       //Kontrollerar om det finns ett valt ämne  
       (this.selectedSubject === "" || course.subject === this.selectedSubject)
     );
+    this.displayedCourses = this.filteredCourse.length;
   }
 
   //Metod som körs när användaren väljer ett alternativ i select-menyn

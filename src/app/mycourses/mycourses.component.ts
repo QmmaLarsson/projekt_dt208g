@@ -33,4 +33,9 @@ export class MycoursesComponent {
     this.myCourses.splice(index, 1);
     this.myCourseservice.saveCourses(this.myCourses);
   }
+
+  //Räkna ut antalet poäng
+  calculatePoints(): number {
+    return this.myCourses.reduce((total, course) => total + course.points, 0);
+  }
 }

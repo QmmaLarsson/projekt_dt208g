@@ -23,5 +23,8 @@
             <td><button (click)="deleteCourse(i)">Ta bort</button></td>
         </tr>
     </tbody>
-    <p *ngIf="myCourses.length === 0">Du har inga sparade kurser...</p>
 </table>
+
+<p *ngIf="myCourses.length === 0">Du har inga sparade kurser...</p>
+<p *ngIf="myCourses.length > 0">Antal sparade kurser: {{ myCourses.length }}</p>
+<p *ngIf="myCourses.length > 0">Antal poäng: {{ calculatePoints() }}</p>
