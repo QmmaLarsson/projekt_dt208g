@@ -1,4 +1,4 @@
-<h1 id="heading4">Kurser</h1>
+<h1>Kurser</h1>
 
 <p id="text">Du kan filtrera ut kurser genom att skriva i sökrutan och du kan sortera kurser i bokstavsordning genom att
     klicka på
@@ -29,6 +29,7 @@
             <th id="points" (click)="sortCourse('points')"><b>Poäng</b></th>
             <th id="subject" (click)="sortCourse('subject')"><b>Ämne</b></th>
             <th id="syllabus"><b>Länk</b></th>
+            <th><b>Lägg till</b></th>
         </tr>
     </thead>
     <tbody id="table">
@@ -39,6 +40,7 @@
             <td>{{course.points}}</td>
             <td>{{course.subject}}</td>
             <td> <a [href]="course.syllabus" target="_blank">Läs mer</a></td>
+            <td><button (click)="addCourse(course)">Lägg till</button></td>
         </tr>
     </tbody>
 </table>

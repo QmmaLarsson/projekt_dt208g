@@ -3,6 +3,7 @@ import { Course } from '../model/course';
 import { CourseService } from '../services/course.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MycourseService } from '../services/mycourse.service';
 
 @Component({
   selector: 'app-courses',
@@ -25,8 +26,11 @@ export class CoursesComponent {
   uniqueSubjects: string[] = [];
   //Värdet från valt ämne för filtrering
   selectedSubject: string = "";
+  //Array som lagrar kurser sparade till localStorage
+  myCourselist: Course[] = [];
 
-  constructor(private courseservice: CourseService) { }
+
+  constructor(private courseservice: CourseService, private myCourseservice: MycourseService) { }
 
   //Metod som körs när komponenten initialiseras
   ngOnInit() {
@@ -75,5 +79,17 @@ export class CoursesComponent {
         return 0;
       });
     }
+  }
+
+  //Metod som körs vid klick på knappen "Lägg till"
+  addCourse(course: Course): void {
+    //Ladda befintliga kurser från localStorage
+    const savedCourses = this.myCourseservice.loadCourses();
+    //Lägg till ny kurs i den befintliga listan
+    savedCourses.push(course);
+    //Spara listan till localStorage
+    this.myCourseservice.saveCourses(savedCourses);
+    //Uppdatera myCourselist
+    this.myCourselist = savedCourses;
   }
 }
