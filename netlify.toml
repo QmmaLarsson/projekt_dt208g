@@ -1,5 +1,5 @@
 [build]
-base = "/"
+base = "src/"
 command = "ng build"
 publish = "dist/projektdt208g/browser"
 
