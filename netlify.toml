@@ -1,6 +1,6 @@
 [build]
 base = "/"
-command "ng build"
+command =  "ng build"
 publish = "dist/projektdt208g/browser"
 
 [[redirects]]
