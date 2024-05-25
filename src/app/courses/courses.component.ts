@@ -28,4 +28,38 @@ export class CoursesComponent {
       this.filteredCourse = data;
     });
   }
+
+  //Methods
+  //Metod som körs när användaren skriver in något i input-fältet
+  applyFilter(): void {
+    this.filteredCourse = this.courselist.filter((course) =>
+      course.courseCode.toLowerCase().includes(this.filterValue.toLowerCase()) || course.courseName.toLowerCase().includes(this.filterValue.toLowerCase())
+    );
+  }
+
+    //Metod som körs när användaren väljer ett alternativ i select-menyn
+  
+  //Metod som körs vid klick på "Kurskod", "Kursnamn" eller "Poäng", "Ämne"
+  sortCourse(sort: string): void {
+    //Om samma kolumn klickas på två gången, vänd sorteringen
+    if (this.sortBy === sort) {
+      this.filteredCourse.reverse();
+    } else {
+      //Annars sortera kurserna efter den klickade kolumnen
+      this.sortBy = sort;
+      this.filteredCourse.sort((a, b) => {
+        if (sort === 'courseCode') {
+          return a.courseCode.localeCompare(b.courseCode);
+        } else if (sort === 'courseName') {
+          return a.courseName.localeCompare(b.courseName);
+        } else if (sort === 'points') {
+          return a.points - b.points;
+        } else if (sort === 'subject') {
+          return a.subject.localeCompare(b.subject);
+        }
+        //Om kolumnen inte matchar något av värdena, behåll ordningen
+        return 0;
+      });
+    }
+  }
 }

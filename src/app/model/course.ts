@@ -1,11 +1,11 @@
 export interface Course {
-    courseCode: String,
-    subjectCode: String,
+    courseCode: string,
+    subjectCode: string,
     level: "GR" | "AV",
-    progression: String,
-    courseName: String,
-    points: Number,
-    institutionCode: String,
-    subject: String,
-    syllabys: String
+    progression: string,
+    courseName: string,
+    points: number,
+    institutionCode: string,
+    subject: string,
+    syllabus: string
 }

@@ -1,7 +1,37 @@
-<p>courses works!</p>
+<h1 id="heading4">Kurser</h1>
 
-<ul>
-    <li *ngFor="let course of courselist">
-        {{course.courseName}}
-    </li>
-</ul>
+<p id="text">Du kan filtrera ut kurser genom att skriva i sökrutan och du kan sortera kurser i bokstavsordning genom att klicka på
+    någon av rubrikerna i tabellen.</p>
+
+<label for="searchBar" id="text"><b>Filtrera kurser:</b></label>
+<br>
+<input type="text" name="searchBar" id="searchBar" placeholder="Kurskod eller kursnamn" [(ngModel)]="filterValue"
+    (input)="applyFilter()">
+
+<!-- Om inga kurser hittas vid filtreringen av kurser skrivs denna text ur-->
+@if(filteredCourse.length === 0) {
+<p>Inga kurser hittades...</p>
+}
+
+<table>
+    <thead>
+        <tr>
+            <!-- Vid klick på Kurskod, Kursnamn eller Progression sorteras innehållet i bokstavsordning för den valda kolumnen-->
+            <th id="courseCode" (click)="sortCourse('courseCode')"><b>Kurskod</b></th>
+            <th id="courseName" (click)="sortCourse('courseName')"><b>Kursnamn</b></th>
+            <th id="points" (click)="sortCourse('points')"><b>Poäng</b></th>
+            <th id="subject" (click)="sortCourse('subject')"><b>Ämne</b></th>
+            <th id="syllabus"><b>Länk</b></th>
+        </tr>
+    </thead>
+    <tbody id="table">
+        <!-- En *ngFor-loop som skriver ut kurser i tabellen -->
+        <tr *ngFor="let course of filteredCourse">
+            <td>{{course.courseCode}}</td>
+            <td>{{course.courseName}}</td>
+            <td>{{course.points}}</td>
+            <td>{{course.subject}}</td>
+            <td> <a [href]="course.syllabus" target="_blank">Läs mer</a></td>
+        </tr>
+    </tbody>
+</table>
