@@ -13,11 +13,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class CoursesComponent {
   //Properties
+  //Array som innehåller alla kurser
   courselist: Course[] = [];
-  //Array som lagrar de kurser som finns kvar efter filtreringen
+  //Array som lagrar filtrerade kurser
   filteredCourse: Course[] = [];
+  //Värdet från input-fältet för att filtrera kurser
   filterValue: string = "";
+  //Värdet från klick på en rubrik för sortering
   sortBy: string = "";
+  //Array som innehåller alla unika ämnen för kurserna
+  uniqueSubjects: string[] = [];
+  //Värdet från valt ämne för filtrering
+  selectedSubject: string = "";
 
   constructor(private courseservice: CourseService) { }
 
@@ -26,19 +33,26 @@ export class CoursesComponent {
     this.courseservice.getCourses().subscribe(data => {
       this.courselist = data;
       this.filteredCourse = data;
+      this.uniqueSubjects = [...new Set(data.map(course => course.subject))];
     });
   }
 
   //Methods
-  //Metod som körs när användaren skriver in något i input-fältet
+  //Metod som körs när användaren skriver in något i input-fältet, filtrerar kurser utifrån matchning med kurskod och kursnamn samt valt ämne
   applyFilter(): void {
     this.filteredCourse = this.courselist.filter((course) =>
-      course.courseCode.toLowerCase().includes(this.filterValue.toLowerCase()) || course.courseName.toLowerCase().includes(this.filterValue.toLowerCase())
+      (course.courseCode.toLowerCase().includes(this.filterValue.toLowerCase()) || course.courseName.toLowerCase().includes(this.filterValue.toLowerCase())) &&
+      //Kontrollerar om det finns ett valt ämne  
+      (this.selectedSubject === "" || course.subject === this.selectedSubject)
     );
   }
 
-    //Metod som körs när användaren väljer ett alternativ i select-menyn
-  
+  //Metod som körs när användaren väljer ett alternativ i select-menyn
+  filterBySubject(): void {
+    //Använder metoden för att filtrera kurser utifrån det ämne som har valts
+    this.applyFilter();
+  }
+
   //Metod som körs vid klick på "Kurskod", "Kursnamn" eller "Poäng", "Ämne"
   sortCourse(sort: string): void {
     //Om samma kolumn klickas på två gången, vänd sorteringen
