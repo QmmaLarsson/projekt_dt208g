@@ -1,0 +1,93 @@
+#courseContainer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+#text {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 550px;
+}
+
+select {
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#searchBar {
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+table {
+    font-size: 1.6rem;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #024d02;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+th {
+    background-color: #024d02;
+    color: white;
+    padding: 5px;
+    min-width: 80px;
+}
+
+//Jämna rader i tabellen får en grå bakgrundsfärg
+tr:nth-child(even) {
+    background-color: #D4D4D4;
+}
+
+a:hover, #courseCode:hover, #courseName:hover, #points:hover, #subject:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a {
+    color: #024d02;
+    text-decoration: none;
+}
+
+td {
+    padding: 5px;
+    border-left: 1px solid #333333;
+}
+
+button {
+    border: none;
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: #024d02;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: orange;
+}
+
+/*Regler för skärmar mindre än 1000px*/
+@media screen and (max-width: 1000px) {
+    table {
+        //Det går att scrolla i sidled i tabellen
+        overflow-x: auto;
+        display: block;
+    }
+}

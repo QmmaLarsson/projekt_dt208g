@@ -1,48 +1,50 @@
-<h1>Kurser</h1>
+<div id="courseContainer">
+    <h1>Kurser</h1>
 
-<p id="text">Du kan filtrera ut kurser genom att skriva i sökrutan och du kan sortera kurser i bokstavsordning genom att
-    klicka på
-    någon av rubrikerna i tabellen.</p>
+    <p id="text">Filtrera kurser genom att skriva i sökrutan eller välja ett ämne i den utfällbara menyn. Det går även
+        att sortera kurser i bokstavsordning genom att klicka på någon av rubrikerna i tabellen.</p>
 
-<label for="subjectFilter"><b>Välj ämne:</b></label>
-<select id="subjectFilter" [(ngModel)]="selectedSubject" (change)="filterBySubject()">
-    <option value="">Alla ämnen</option>
-    <option *ngFor="let subject of uniqueSubjects" [value]="subject">{{ subject }}</option>
-</select>
-<br>
-<label for="searchBar" id="text"><b>Filtrera kurser:</b></label>
-<br>
-<input type="text" name="searchBar" id="searchBar" placeholder="Kurskod eller kursnamn" [(ngModel)]="filterValue"
-    (input)="applyFilter()">
+    <label for="subjectFilter"><b>Välj ämne:</b></label>
+    <br>
+    <select id="subjectFilter" [(ngModel)]="selectedSubject" (change)="filterBySubject()">
+        <option value="">Alla ämnen</option>
+        <option *ngFor="let subject of uniqueSubjects" [value]="subject">{{ subject }}</option>
+    </select>
+    <br>
+    <label for="searchBar" id="text"><b>Filtrera kurser:</b></label>
+    <br>
+    <input type="text" name="searchBar" id="searchBar" placeholder="Kurskod eller kursnamn" [(ngModel)]="filterValue"
+        (input)="applyFilter()">
 
-<!-- Om inga kurser hittas vid filtreringen av kurser skrivs denna text ut-->
-@if(filteredCourse.length === 0) {
-<p>Inga kurser hittades...</p>
-}
+    <!-- Om inga kurser hittas vid filtreringen av kurser skrivs denna text ut-->
+    @if(filteredCourse.length === 0) {
+    <p>Inga kurser hittades...</p>
+    }
 
-<p>Visar {{ displayedCourses }} av {{ totalCourses }} kurser</p>
+    <p>Visar {{ displayedCourses }} av {{ totalCourses }} kurser</p>
 
-<table>
-    <thead>
-        <tr>
-            <!-- Vid klick på Kurskod, Kursnamn eller Progression sorteras innehållet i bokstavsordning för den valda kolumnen-->
-            <th id="courseCode" (click)="sortCourse('courseCode')"><b>Kurskod</b></th>
-            <th id="courseName" (click)="sortCourse('courseName')"><b>Kursnamn</b></th>
-            <th id="points" (click)="sortCourse('points')"><b>Poäng</b></th>
-            <th id="subject" (click)="sortCourse('subject')"><b>Ämne</b></th>
-            <th id="syllabus"><b>Länk</b></th>
-            <th><b>Lägg till</b></th>
-        </tr>
-    </thead>
-    <tbody id="table">
-        <!-- En *ngFor-loop som skriver ut kurser i tabellen -->
-        <tr *ngFor="let course of filteredCourse">
-            <td>{{course.courseCode}}</td>
-            <td>{{course.courseName}}</td>
-            <td>{{course.points}}</td>
-            <td>{{course.subject}}</td>
-            <td> <a [href]="course.syllabus" target="_blank">Läs mer</a></td>
-            <td><button (click)="addCourse(course)">Lägg till</button></td>
-        </tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <!-- Vid klick på Kurskod, Kursnamn eller Progression sorteras innehållet i bokstavsordning för den valda kolumnen-->
+                <th id="courseCode" (click)="sortCourse('courseCode')"><b>Kurskod</b></th>
+                <th id="courseName" (click)="sortCourse('courseName')"><b>Kursnamn</b></th>
+                <th id="points" (click)="sortCourse('points')"><b>Poäng</b></th>
+                <th id="subject" (click)="sortCourse('subject')"><b>Ämne</b></th>
+                <th id="syllabus"><b>Länk</b></th>
+                <th><b>Lägg till</b></th>
+            </tr>
+        </thead>
+        <tbody id="table">
+            <!-- En *ngFor-loop som skriver ut kurser i tabellen -->
+            <tr *ngFor="let course of filteredCourse">
+                <td>{{course.courseCode}}</td>
+                <td>{{course.courseName}}</td>
+                <td>{{course.points}}</td>
+                <td>{{course.subject}}</td>
+                <td> <a [href]="course.syllabus" target="_blank">Läs mer</a></td>
+                <td><button (click)="addCourse(course)">Lägg till</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,62 @@
+header {
+    background-color: #024d02;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 1fr;
+    box-shadow: 0px 0px 5px black;
+}
+
+#logo {
+    grid-area: 1/1/2/2;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+
+#logo img {
+    max-width: 200px;
+    width: 100%;
+}
+
+#float {
+    grid-area: 1/2/2/3;
+    float: right;
+}
+
+#float a {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #023302;
+    color: white;
+    display: inline-block;
+    padding: 30px;
+}
+
+#float a:hover {
+    background-color: orange;
+}
+
+@media screen and (max-width: 700px) {
+    header {
+        grid-template-columns: 100%;
+        padding-top: 20px;
+        background-color: #024d02;
+    }
+    
+    #logo {
+        grid-area: 1/1/2/2;
+        margin: 0 auto;
+    }
+    
+    #float {
+        float: none;
+    }
+
+    #float a {
+        display: block;
+        text-align: left;
+        padding: 15px;
+    }
+}

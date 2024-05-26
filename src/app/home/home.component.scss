@@ -1,0 +1,222 @@
+#homeContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+//En bild som används som bakgrund högst upp på sidan
+#heroImg {
+    grid-area: 1/1/2/5;
+    background-image: url("/assets/images/heroImg.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    max-width: 100%;
+}
+
+#heroText {
+    grid-area: 1/1/2/5;
+    width: 80%;
+    max-width: 550px;
+    margin: 20px auto;
+    text-align: center;
+    z-index: 1;
+    color: white;
+    box-sizing: border-box;
+}
+
+#heroText p {
+    font-size: 2rem;
+}
+
+.btn {
+    text-decoration: none;
+    border: none;
+    font-size: 1.8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #024d02;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: orange;
+}
+
+#infoText {
+    grid-area: 2/1/3/5;
+    width: 100%;
+    border-top-style: double;
+    border-bottom-style: double;
+    border-width: 10px;
+    border-color: orange;
+    padding: 30px 0;
+}
+
+#infoText p {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+#infoImg {
+    grid-area: 2/3/3/5;
+}
+
+#infoImg img {
+    width: 100%;
+}
+
+#aboutBackground {
+    grid-area: 3/1/4/5;
+    background-image: url("/assets/images/aboutBG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#aboutText {
+    width: 80%;
+    max-width: 550px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 30px auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#whyUs {
+    grid-area: 4/1/5/5;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+#whyUsText {
+    grid-area: 1/1/2/2;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#whyUsImg {
+    grid-area: 1/2/2/3;
+    width: 100%;
+    max-width: 550px;
+    box-sizing: border-box;
+}
+
+#whyUsImg img {
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#joinUs {
+    grid-area: 5/1/6/5;
+    background-image: url("/assets/images/students.jpg");
+    min-height: 300px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+#joinUs h2 {
+    display: inline-block;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 166, 0, 0.7);
+    padding: 0.2em;
+}
+
+/*Regler för skärmar med maxbredd 1024px */
+@media screen and (max-width: 1024px) {
+    #homeContainer {
+        grid-template-columns: 50% 50%;
+    }
+
+    #heroText {
+        width: 90%;
+    }
+
+    #aboutText {
+        width: 90%;
+    }
+
+    #whyUs {
+        grid-template-columns: 100%;
+    }
+
+    #whyUsImg {
+        grid-area: 2/1/3/2;
+        margin-top: 20px;
+    }
+}
+
+/*Regler för skärmar med maxbredd 600px*/
+@media screen and (max-width: 600px) {
+    #homeContainer {
+        grid-template-columns: 100%;
+    }
+
+    #heroImg, #heroText {
+        grid-area: 1/1/2/2;
+    }
+
+    #infoText {
+        grid-area: 2/1/3/2;
+    }
+
+    #aboutBackground {
+        grid-area: 3/1/4/2;
+    }
+
+    #whyUs {
+        grid-area: 4/1/5/2;
+    }
+
+    #whyUsText {
+        padding: 10px;
+    }
+
+    #joinUs {
+        grid-area: 5/1/6/2;
+    }
+
+    #joinUs h2{
+        display: block;
+        font-size: 3rem;
+    }
+
+    #heroText,
+    #aboutText,
+    #whyUs,
+    #whyUsText,
+    #whyUsImg {
+        width: 100%;
+        max-width: none;
+    }
+
+    #heroText {
+        padding: 0 20px;
+    }
+
+    #infoText {
+        padding: 20px 0;
+    }
+}
