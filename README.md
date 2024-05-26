@@ -12,7 +12,7 @@ Projektet skapades med hjälp av Angular CLI (https://github.com/angular/angular
 Ett interface skapas med kommandot "ng generate interface model/course". Det fungerar som en mall för hur kurs-objektet ska se ut och vilka egenskaper det bör ha.
 
 **Hämta data**\
-För att kunna göra AJAX anrop till en server måste HttpClient-modulen installeras. Detta görs i app.module.ts. Därefter skapas en service skapas med kommandot "ng generate service service/course". HttpClient för att göra ett GET-anrop till URL:en https://webbutveckling.miun.se/files/ramschema_ht23.json. Svaret returneras som en array.
+För att kunna göra AJAX anrop till en server måste HttpClient-modulen installeras. Detta görs i app.module.ts. Därefter skapas en service skapas med kommandot "ng generate service service/course". HttpClient för att göra ett GET-anrop till URL:en https://matdah.github.io/DT208G---Programmering-i-TypeScript/Moment%205%20-%20Projekt/miun_courses.json. Svaret returneras som en array.
 
 **Skapa tabell för tillgängliga kurser**\
 En komponent skapas med kommandot "ng generate component courses". I denna skapas i sin tur en tabell. En *ng-loop används för att skriva ut alla kurser i tabellen. Kursena hämtas från det externa APIet. Interpolation används för att binda datan från komponentklassen till HTML-koden. Detta görs med hjälp av dubbla måsvingar. För varje kurs finns en knapp för att spara kursen till localStorage, detta görs med hjälp av eventbinding. Vid klick på knappen så körs metoden addCourse().
