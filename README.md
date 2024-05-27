@@ -3,7 +3,7 @@
 **Student-ID:** emla2309
 
 ### Beskrivning av webbplats
-Detta är en webbplats för ett fiktivt universitet. På webbplatsen finns en tabell som visar kurser som finns tilgängliga på universitetet. Det går att filtrera kurserna genom att skriva in en sökfras i input-fältet alternativt genom att välja ett ämne i den utfällbara menyn. Det går även att sortera kurserna i bokstavsordning genom att klicka på rubrikerna i tabellen. Det finns möjlighet att skapa ett eget ramschema genom att lägga till kurser från de kurser som finns tillgängliga i tabellen. Dessa hamnar då på en separat sida där man kan se hur många kurser man har valt samt hur många högskolepoäng kurserna har sammanlagt. Det går även att ta bort kurser som man har lagt till i sitt ramschema.
+Detta är en webbplats för ett fiktivt universitet. På webbplatsen finns en tabell som visar kurser som finns tilgängliga på universitetet. Det går att filtrera kurserna genom att skriva in en sökfras i input-fältet alternativt genom att välja ett ämne i den utfällbara menyn. På sidan kan man se hur många kurser det finns totalt samt hur många kurser som visas för tillfället. Det går även att sortera kurserna i bokstavsordning genom att klicka på rubrikerna i tabellen. Det finns möjlighet att skapa ett eget ramschema genom att lägga till kurser från de kurser som finns tillgängliga i tabellen. Dessa hamnar då på en separat sida där man kan se hur många kurser man har valt samt hur många högskolepoäng kurserna har sammanlagt. Det går även att ta bort kurser som man har lagt till i sitt ramschema.
 
 Projektet skapades med hjälp av Angular CLI (https://github.com/angular/angular-cli) version 17.3.5.
 
